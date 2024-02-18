@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "job-portal-f2665": {
+      "hosting": {
+        "angular_assignment_2": [
+          "job-portal-f2665"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "job-portal-f2665"
+  }
+}

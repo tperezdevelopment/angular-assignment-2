@@ -1,0 +1,68 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-md-2">
+          <app-search (searchChange)="onSearchChange($event)"></app-search>
+      </div>
+  </div>
+  <div class="row mt-3">
+      <div class="row">  
+          <div class="col-md-3">    
+              <button class="btn btn-primary mb-3" (click)="addJob(addJobTemplate)">Add Job</button>
+          </div>
+      </div>
+      <div class="bd-example">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Company</th>
+                  <th>Role Type</th>
+                  <th>Description</th>
+                  <th>Skill</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let job of filteredJobs">
+                  <td>{{ job.job_title }}</td>
+                  <td>{{ job.company }}</td>
+                  <td>{{ job.role_type }}</td>
+                  <td>{{ job.job_description }}</td>
+                  <td>{{ job.skills }}</td>
+                  <td>
+                      <button class="btn btn-info btn-sm" (click)="editJob(editJobTemplate)">Edit</button>
+                      <button class="btn btn-danger btn-sm" (click)="deleteJob(job)">Delete</button>
+                  </td>
+                  <!--- Begin Ng Templates --->
+                  <!-- Edit Job --->
+    <ng-template #editJobTemplate let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Edit the Job</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+        <div class="modal-body">
+            <app-edit-job [job] ="job" (submitSuccess)= "closeEditTemplate($event)"  ></app-edit-job>
+         </div>
+    </ng-template>
+     <!--- End Ng Templates --->
+              </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+ <!--- Begin Ng Templates --->
+<!-- Add Job --->
+<ng-template #addJobTemplate let-modal>
+  <div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Add a Job</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+  <div class="modal-body">
+  <app-add-job></app-add-job>
+</div>
+</ng-template>
+ <!--- End Ng Templates --->
+
+

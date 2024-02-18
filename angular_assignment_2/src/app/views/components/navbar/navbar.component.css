@@ -1,0 +1,28 @@
+#page-topbar {
+  top: 0;
+  right: 0;
+  background-color: #0d6dfdbd;
+  padding: 0 calc(24px / 2);
+}
+
+ .navbar-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  height: 70px;
+}
+
+@media (min-width: 768px) and (max-width : 991px) {
+  .user-dropdown-ajust {
+    flex: 0 0 auto;
+    width: 50% !important;
+    margin-left: 50% !important;
+  }
+}

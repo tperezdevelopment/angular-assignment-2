@@ -1,0 +1,39 @@
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+    overflow-wrap: break-word;
+  }
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse;
+  }
+
+  .bd-example::after{
+    display: block;
+    clear: both;
+    content: ""
+  }
+
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
+
+  .bd-example {
+    position: relative;
+    padding: 1rem;
+    margin: 1rem -15px 0;   
+    overflow: hidden;
+  }
+  @media (max-width: 992px){
+    .table > :not(caption) > * > *{
+        font-size: 12px;
+        overflow-wrap: break-word;
+    }
+  }

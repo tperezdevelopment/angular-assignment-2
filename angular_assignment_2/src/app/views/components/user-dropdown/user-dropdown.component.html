@@ -1,0 +1,18 @@
+<ul class="header-menu list-inline d-flex align-items-center mb-0">
+  <li class="list-inline-item dropdown" *ngIf="userName; else loginMenu" (click)="toggleDropdown()" dropdown>
+    <a href="javascript:void(0)" class="header-item" id="userdropdown" dropdownToggle>
+      <img src="../../../../assets/images/avatar.webp" alt="Home" width="40" height="35" class="rounded-circle me-1">
+      <span class="d-none d-md-inline-block fw-medium">Hi, {{ userName }}</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" *ngIf="isDropdownOpen" dropdownMenu>
+      <li routerLinkActive="hidden"><a class="dropdown-item" [routerLink]="['/home']">Home</a></li>
+      <li routerLinkActive="hidden"><a class="dropdown-item" [routerLink]="['/dashboard']">Dashboard</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)" (click)="logout()">Logout</a></li>
+    </ul>
+  </li>
+  <ng-template #loginMenu>
+    <li class="list-inline-item">
+      <a [routerLink]="['/login']" class="header-item">Login</a>
+    </li>
+  </ng-template>
+</ul>

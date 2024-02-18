@@ -1,0 +1,11 @@
+.bg-home2 {
+    padding: 0 0 10px 0;
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+  }
+
+  @media (max-width: 1399px) {
+    .bg-home2 {
+      padding: 60px 0 25px 0;
+    }
+  }
+

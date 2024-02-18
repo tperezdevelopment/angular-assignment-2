@@ -1,0 +1,60 @@
+<div class="job-box card mt-4">
+    <div class="bookmark-label text-center">
+        <a href="javascript:void(0)" class="text-white align-middle"><i class="mdi mdi-star"></i></a>
+    </div>
+    <div class="p-4">
+        <div class="row align-items-center">
+            <div class="col-md-1">
+                <div class="text-center mb-2 mb-md-0">
+                    <a href="company-details.html"><img src="../../../../assets/images/angular-logo.png" alt=""
+                            class="img-fluid rounded-3"></a>
+                </div>
+            </div>
+            <!--end col-->
+            <div class="col-md-3">
+                <div class="mb-2 mb-md-0">
+                    <h5 class="fs-16 mb-1"><a href="job-details.html" class="text-dark">{{ job.job_title }}</a>
+                    </h5>
+                    <p class="text-muted fs-14 mb-0">{{ job.company }}</p>
+                </div>
+            </div>
+            <!--end col-->
+            <div class="col-md-6">
+                <ng-container *ngIf="job.job_description.length > maxLength">
+                    <p>{{ isCollapsed ? (job.job_description | slice:0:maxLength) : job.job_description }}
+                        <button (click)="toggleCollapse()" class="btn btn-link">{{ isCollapsed ? 'See More' : 'See Less'
+                            }}</button>
+                    </p>
+                </ng-container>
+                <ng-container *ngIf="job.job_description.length <= maxLength">
+                    <p>{{ job.job_description }}</p>
+                </ng-container>
+            </div>
+            <!--end col-->
+            <div class="col-md-2">
+                <div [ngSwitch]="job.role_type">
+                    <span *ngSwitchCase="'Full Stack'" class="badge bg-success-subtle text-success fs-13 mt-1">{{
+                        job.role_type }}</span>
+                    <span *ngSwitchCase="'Front End'" class="badge bg-success-subtle text-primary fs-13 mt-1">{{
+                        job.role_type }}</span>
+                    <span *ngSwitchCase="'Back End'" class="badge bg-success-subtle text-info fs-13 mt-1">{{
+                        job.role_type }}</span>
+                </div>
+            </div>
+            <!--end col-->
+        </div>
+        <!--end row-->
+    </div>
+    <div class="p-3 bg-light">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div>
+                    <p class="text-muted mb-0"><span class="text-dark">Skills :</span>
+                        {{ job.skills }} </p>
+                </div>
+            </div>
+            <!--end col-->
+        </div>
+        <!--end row-->
+    </div>
+</div>

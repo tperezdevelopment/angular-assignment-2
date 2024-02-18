@@ -1,0 +1,79 @@
+<div class="container mt-2">
+    <div class="row">
+      <div class="col-md-12">
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+    <div lass="form-group">
+      <label for="job_title">Job Title</label>
+      <input type="text"
+       [formControlName]="'job_title'"
+       class ="form-control"
+       placleholder= 'Job Title'
+       >
+      <div *ngIf="jobTitleIsValid"  class="error-message">
+        Please enter valid Job Title
+      </div>
+    </div>
+  
+      <div class="form-group mt-2">
+          <label>Company</label>
+        <input type="text" 
+              id="company" 
+              [formControlName] ="'company'"
+              class="form-control"
+              placeholder="Company Name"
+              >
+        <span
+        *ngIf="companyIsValid" 
+        class="error-message"
+      >
+        Please enter valid Company Name
+      </span>
+      </div>
+    
+      
+      <div class="form-group mt-2">
+        <label for="role_type">Role Type</label>
+        <select id="role_type" 
+        [formControlName]="'role_type'"
+        class ="form-control"
+        placleholder= 'Role Type' 
+        >
+          <option *ngFor="let role of roletype" [value]="role">{{ role }}</option>
+        </select>
+        <span *ngIf="roleTypeIsValid"  class="error-message">
+          Please enter valid Role Type
+        </span>
+      </div>
+  
+      <div class="form-group mt-2">
+        <label for="job_description">Job Description</label>
+        <textarea
+         [formControlName]="'job_description'"
+         class="form-control"
+          placeholder="Description of the Job"
+         ></textarea>
+        <span *ngIf="jobDescriptionIsValid"  class="error-message">
+          Please enter valid Job Description      
+        </span>
+      </div>
+    
+  
+      <div class="form-group mt-2">
+        <label for="skills">Skills</label>
+        <input type="text"       
+        [formControlName]="'skills'"
+        class="form-control"
+        placeholder="Add Skills separated by comma"
+        >
+        <span *ngIf="skillsIsValid"  class="error-message">
+          Please enter valid Skills
+        </span>
+      </div>
+    
+      <button type="submit" class="btn btn-primary mt-4" [disabled]="jobForm.invalid">Update</button>
+    </form>
+    
+    </div>
+    </div>
+  
+    </div>

@@ -1,0 +1,10 @@
+.section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+  }
+  
+  .section-title .title {
+    font-size: 30px;
+    line-height: 1.375;
+  }
